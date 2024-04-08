@@ -45,7 +45,6 @@ def ask_gpt(question, selected_archetype):
     response = client.chat.completions.create(model="gpt-4-0125-preview",  
         messages=[{"content":prompt_template.format(question), "role":"user"}],
         temperature=0.7, max_tokens=300)
-    print(response)
 
     # Add response to the conversation history
     conversation_history.append({"assistant": response.choices[0].message.content.strip()})
